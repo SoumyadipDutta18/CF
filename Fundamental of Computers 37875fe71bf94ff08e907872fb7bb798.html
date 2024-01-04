@@ -1,0 +1,694 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Fundamental of Computers</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="37875fe7-1bf9-4ff0-8e90-7872fb7bb798" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/computer-chip_yellow.svg"/></div><h1 class="page-title">Fundamental of Computers</h1><p class="page-description"></p></header><div class="page-body"><ol type="1" id="c522a2c7-7f2e-4509-9b13-4cef5f14d789" class="numbered-list" start="1"><li><strong>Introduction to Computer:</strong> Computer Characteristics, Concept of Hardware, Software, Evolution of Computer and Generations, Types of Computers. <strong>[L 3]</strong></li></ol><ol type="1" id="a5788475-f656-430c-b902-c27d4c67b25b" class="numbered-list" start="2"><li><strong>Structure and Working of Computer:</strong> Functional Block Diagram of Computer. CPU, ALU, Memory Unit, Bus Structure of Digital Computer: Address, Data, and Control Bus. <strong>[L 3]</strong></li></ol><ol type="1" id="ed7ac3fe-fd4a-41db-8e5b-4dfa51ee806d" class="numbered-list" start="3"><li><strong>Input/Output Devices:</strong> Input Devices: Keyboard, Mouse, Scanner, MICR, OMR. Output Devices: VDU, Printers: Dot Matrix, Daisy-wheel, Inkjet, Laser, Line Printers, and Plotters. <strong>[L 3]</strong></li></ol><ol type="1" id="24c2600a-ab85-4e35-98bb-e9b5b0f4de97" class="numbered-list" start="4"><li><strong>Computer Memory:</strong> Memory: RAM, ROM, PROM, EPROM. Secondary Storage Devices: Magnetic Tape, Magnetic Disk, Compact Disk. <strong>[L 4]</strong></li></ol><ol type="1" id="717a20b0-7ad6-4335-968d-f7dcc1b33573" class="numbered-list" start="5"><li><strong>Computer Language and Software:</strong> Algorithms, Flowcharts, Machine Language, Assembly Language, High-level Language, Assembler, Compiler, Interpreter. Software: System and Application Software. <strong>[L 4]</strong></li></ol><ol type="1" id="48ada01e-892f-436c-a29e-b787e2325d69" class="numbered-list" start="6"><li><strong>Operating System:</strong> Functions of Operating System, Types of Operating Systems, Introduction and Features of LINUX OS. <strong>[L 4]</strong></li></ol><ol type="1" id="99b09e00-c6fb-4f59-8d4a-a016593ae664" class="numbered-list" start="7"><li><strong>Networking:</strong> Basic Elements of a Communication System, Data Transmission Media, Topologies, LAN, MAN, WAN, Internet. <strong>[L 4]</strong></li></ol><ol type="1" id="aad120f6-c87c-4041-89f4-6ce4c346d117" class="numbered-list" start="8"><li><strong>Microsoft Office:</strong> Introduction to MS Office: MS Word, MS Excel, MS PowerPoint . <strong>[L 5]</strong></li></ol><p id="93972db4-d214-4872-9a51-c4abbb943285" class="">
+</p><p id="e7c472df-c01c-4ac8-bce9-779531f09f78" class="">
+</p><p id="aa94ad11-a13f-4f05-ad39-f873bc733e73" class="">
+</p><h1 id="5332e6cf-ad14-41ac-b9e7-610874862991" class="">1.<strong>Introduction to Computer:</strong></h1><h3 id="9842424e-07d6-460b-bfb7-fc2551e61869" class="">Computer Characteristics</h3><ol type="1" id="17944f26-476f-4bb9-92ae-da4196baf0f4" class="numbered-list" start="1"><li><strong>What is Computer?</strong><p id="f80f26d8-8d84-4127-93ec-cd84dd183a7b" class="">→ A computer is a calculating device that perform arithmetic operation at high speed and high accuracy. In present generation the main task of a computer is data processing.</p><ul id="cfe5a273-4166-4e57-9c01-728aa46044c1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Data </strong></span></mark><strong>→</strong> Raw and unprocessed fact/number/text/audio/video/etc. that doesn&#x27;t have any meaning at there own is called Data.</li></ul><ul id="e139093e-9958-4d70-87d9-251bd1446de3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Information </strong></span></mark><strong>→</strong> Meaningful and useful result obtain by processing and organizing data is called Information.</li></ul></li></ol><ol type="1" id="d3587e2d-cfc2-4ed7-a02f-e5a0b3bd5802" class="numbered-list" start="2"><li><strong>Formal definition of an Computer →</strong><p id="926ed66a-4fae-48e0-86d2-c19eeef21c89" class="">→ A computer is an electronic device, which accepts data from user in form of input through input device process the data as per user’s.</p></li></ol><ol type="1" id="fc7fe20a-1725-404d-a184-3894da86a6e6" class="numbered-list" start="3"><li><strong>Characteristic of an computer →</strong><ol type="a" id="149061a3-6b2f-4a1c-ae2f-307c7d71c36d" class="numbered-list" start="1"><li><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Speed</strong></span></mark><strong>→</strong> A computer can perform any task very quickly.</li></ol><ol type="a" id="274dafb8-4221-48e4-a058-7de62eba3d76" class="numbered-list" start="2"><li><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Accuracy</strong></span></mark><strong>→</strong> A computer can perform any task in the most correct way possible.</li></ol><ol type="a" id="95a93a9b-7a7d-4583-a53e-8616d55389f3" class="numbered-list" start="3"><li><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Diligence</strong></span></mark><strong>→</strong> A computer can never get tired.</li></ol><ol type="a" id="25138d73-1abd-4dea-b549-92ded0074825" class="numbered-list" start="4"><li><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Versatility</strong></span></mark><strong>→</strong> A computer can perform any task.</li></ol><ol type="a" id="e6c2d30f-0bfb-4572-bcd9-8a3a20374553" class="numbered-list" start="5"><li><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"><strong>Memory</strong></mark></span><strong>→</strong> A computer has a sufficient amount of storage to store important data permanently.</li></ol><ul id="dd73dadf-16ac-4e1e-9800-e0344cd948f8" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-red"><strong>GIGO</strong></mark></span><mark class="highlight-red"><strong>→</strong></mark><mark class="highlight-red"> Garbage In Garbage Out. </mark></li></ul></li></ol><h3 id="4d1a0b3d-c394-4515-9fe5-3556d155c99d" class="">Concept of Hardware</h3><h3 id="16e4c59f-8f46-483c-8e4c-11805e9784a7" class="">Software</h3><h3 id="b31411cd-445b-4a07-a132-f19823b4df8c" class="">Evolution of Computer and Generations</h3><p id="3c20dc86-62b7-4569-bc29-64d48e91f533" class=""><div class="indented"><p id="3c3654be-93b8-458e-9170-be3721900d4b" class="">
+</p></div></p><p id="1c83c741-7c3d-40be-9f60-4a517a8f3ca1" class="">
+</p><h3 id="fe9c7b29-5a98-4401-aa15-71c35ebcf876" class="">Types of Computers →</h3><ol type="1" id="3282d939-fdb1-4847-98b7-21781edcab17" class="numbered-list" start="1"><li>Embedded system.</li></ol><ol type="1" id="c17f60dd-e42d-4f68-bc4f-4442d069ef7e" class="numbered-list" start="2"><li>Personal computer.</li></ol><ol type="1" id="db140fb6-dea2-4ba5-8d43-65b23ab648ca" class="numbered-list" start="3"><li>Mini computer.</li></ol><ol type="1" id="046273eb-a94f-477c-b904-0e15b4c98aa7" class="numbered-list" start="4"><li>Mainframe computer.</li></ol><ol type="1" id="5c9af591-6ce0-4107-bff9-cdb60fa9bf96" class="numbered-list" start="5"><li>Servers.</li></ol><ol type="1" id="9831f251-7d5e-431f-bf1a-55722067a2bd" class="numbered-list" start="6"><li>Super computer.</li></ol><p id="417fa327-8338-4a50-97c5-33048feac217" class="">
+</p><ul id="69b38f07-37fb-478f-9322-1783b461a5e3" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Embedded system→</strong></mark></span><span style="border-bottom:0.05em solid"><mark class="highlight-blue"> </mark></span><p id="95e4eeab-c31b-442f-bb5c-16e30adf0aa8" class="">This type of computer are integrated into various devices, applications and machinery.<div class="indented"><p id="a04eabdf-5b3b-4fb2-8a8d-f57e3d8ef1da" class="">They control a specific control of the system they are incorporated into.</p><p id="a5020b7d-3cba-4030-90ff-4b7ab42d1b25" class="">An embedded system is to automate, control and manage the device in an efficient manner.</p><p id="75573d6e-e912-452a-b56d-583e0dce38a8" class="">In general this type of system has memory and limited functionality. </p></div></p></li></ul><ul id="bf9b3a05-c41e-4cb1-9b17-989aadefc818" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Personal computer→</strong></span></mark><p id="d65ff350-bd50-44f5-84ec-2128ec8bc924" class="">Pc’s are designed for individual use. they are versatile and used for various task such as office work, web browsing, gaming, etc.<div class="indented"><p id="0db8ab96-485e-4bf6-b1ca-7b13731eed9f" class="">Pc’s are more powerful than embedded system but they are sophisticated machines which can damage by environmental factors. </p></div></p></li></ul><ul id="1209f221-61d8-46c0-a207-b5eb6cae9a19" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Mini computer→</strong></span></mark><p id="fcebc516-9c07-42c7-add9-e2e0d08f2fbe" class="">This type of computer’s larger than PC and are mainly use in industrial settings such as nuclear power plant, electricity grids and other control system.<div class="indented"><p id="fd94e5a5-b1e2-4257-abaa-1ed60a89d565" class="">Mini computer’s are used for tasks like database management, scientific simulation and industrial control system.</p></div></p></li></ul><ul id="ca86f294-460d-4757-9b3e-52f07df6a5b4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Mainframe computer→</strong></span></mark><p id="03fd340f-c1bd-4931-aa64-b44b1c96e2c0" class="">mainframe computer’s are large and robust machines design for heavy duty computer’s they supports a large number of user, making it a suitable enterprise level application.<div class="indented"><p id="ebdd3cc8-ed1d-4060-a455-6349fed8c702" class="">There system has a huge processing capability and can perform critical tasks very efficiently.</p></div></p></li></ul><ul id="d445507d-9b6b-41f7-b3ce-03458020c3ec" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Servers</strong></span></mark><strong>→</strong><p id="31b6046e-ee16-4af1-a4c6-b219c3d7513d" class="">A server is a computer which is design to provide services, data, resources to each other computer’s over a network.<div class="indented"><p id="e19d8ec3-21f8-439b-b730-0c6609c0fe2f" class="">The network can be a local area network or a wide area network like the internet. There are different type or server machine that sever different purposes.</p><p id="6ccd3cab-2299-4004-8e7c-aebf6cfc144f" class=""><mark class="highlight-red"><strong>For example </strong></mark><mark class="highlight-red">:</mark> E-mail server (manage your E-mail), Data base server (manage the data on the internet).</p></div></p></li></ul><ul id="55e8c287-1a45-4811-98e6-942fd5acd258" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Super computer→</strong></span></mark><p id="0439659c-ecde-4bd3-89f9-fd0f19d48041" class="">Super computer’s are the most powerful computer’s used for complex scientific and engineering experiments.<div class="indented"><p id="dece8efc-0e1d-41f0-919f-60d70d422761" class="">They can perform various task like tracking the intercept point a space rover and a planetary body, whether for casting, nuclear simulation, etc.</p></div></p></li></ul><p id="7e28a175-4154-4c99-b0a0-4a5620814a21" class="">
+</p><h1 id="e731e704-a1e8-4e2e-a806-59fad45dc036" class="">2.<strong>Structure and Working of Computer:</strong></h1><h2 id="512bf5ce-d553-44e1-ad23-1a9ed75f31c1" class=""><strong>Functional Block Diagram of Computer→</strong></h2><p id="0a9a9973-5b73-4b74-826d-b6356c687bbf" class="">CPU</p><p id="18f8f3de-5ec2-4fa1-962e-b6f606eb2ca7" class="">ALU</p><p id="3f6b2bb3-aa1b-4e86-b15c-6a157f76a8ec" class="">Memory Unit</p><h2 id="a420f8a7-76a5-4221-a6e5-5e17a8eda1e9" class=""><strong>Bus Structure of Digital Computer→</strong></h2><ul id="1f284d32-2b5e-43dd-894b-54457fd18401" class="bulleted-list"><li style="list-style-type:disc"><strong>Bus architecture of computer system →</strong><ul id="c4a28a70-9b91-4ed2-908d-41bb26a8d08c" class="bulleted-list"><li style="list-style-type:circle">In a computer system there are different type of components  like processor, memory, input/output devices.<p id="bff6ddb1-aa7b-44a6-8f53-17cd1f1f8d39" class="">A bus is a connection path between all this components. data can pass through a bus is form of electrical signal.</p></li></ul></li></ul><ul id="dedfd691-79a9-4663-846b-4ff864dd7aa3" class="bulleted-list"><li style="list-style-type:disc"><strong>System Bus →</strong> <ul id="a47cb5c6-9e48-4ae8-a844-abf2f14e91f2" class="bulleted-list"><li style="list-style-type:circle">A system bus is a special type of bus that interconnect the main components of a computer.</li></ul></li></ul><p id="8507f595-aa2e-42b3-b843-9d8f12e82743" class=""><strong>There are 3 types of system bus →</strong><div class="indented"><ol type="1" id="36288854-6450-4261-be1b-1ce3773527ab" class="numbered-list" start="1"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Data Bus</strong></span></mark> → A data bus allows data to be transferred form one component to another. Typically a data bus is 32 bit or 63 bit. A data bus is bidirectional.</li></ol><ol type="1" id="27cb3caa-516b-49f3-bd13-8268ef6b1783" class="numbered-list" start="2"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Address Bus</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ An address bus allows address to be generated from CPU to memory and input/output device. An address bus is unidirectional.</li></ol><ol type="1" id="cd1ef134-973d-4ab3-939a-fa3828e011a3" class="numbered-list" start="3"><li><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Control Bus</strong></mark></span><span style="border-bottom:0.05em solid"><mark class="highlight-blue"> →</mark></span> The timing and control signals generated by the control unit is transferred with the help of control signal are memory read., memory write, memory I/O read and I/O write.</li></ol></div></p><h1 id="457f3cbc-96cc-4b67-ac1a-10abfb53e838" class="">3.<strong>Input/Output Devices:</strong></h1><h2 id="03ad9f6f-aca3-439e-ac00-6f405ac3b878" class="">Input Devices: </h2><p id="737de6e7-1a51-4cad-a9fe-4b61eca3f1ce" class="">→ An input device is an electromechanical device that accept data from outside world and convert it into a form that computer can understand.</p><p id="c39b4c4b-258c-4aa6-876a-dc68ade4ee47" class=""><strong>There are different types of input device :</strong><div class="indented"><ol type="1" id="6db7b61c-0f98-4677-90f8-92d726f3b276" class="numbered-list" start="1"><li><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Keyboard</strong></mark></span> → Keyboard is the most commonly used input device. Traditionally it has 101 keys. the most popular type of keyboard is QWERTY keyboard.</li></ol><ol type="1" id="fd103948-6630-457c-8be4-9daa2bcbb529" class="numbered-list" start="2"><li><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Mouse</strong></mark></span> → It is the most commonly used pointing device. Having a mouse is mandatory when using GUI application.<p id="b3230f83-e0c4-4b81-a001-b28d414a804d" class=""><strong>There are 3 types of mouse :</strong><div class="indented"><ul id="2d7dad18-cefa-48ea-bd45-3dd74d3f681a" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"><strong>Mechanical mouse</strong></mark></span><strong> </strong>→ In this a track ball is present underneath the mouse, When we move the mouse the track ball rolls which causes the cursor to move. In this type of mouse a trackpad must be used along with the mouse.</li></ul><ul id="7fac3524-9cff-42e0-ac48-165127f813c7" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"><strong>Optical mouse</strong></mark></span><mark class="highlight-yellow"> </mark>→ An optical mouse  has no mechanical part, instead it has a photo detector that can track the motion of the mouse, in this type of mouse trackpad is not necessary. </li></ul></div></p></li></ol><ol type="1" id="adfc9608-4dc9-42c4-aaf6-aa90a4f4f5c1" class="numbered-list" start="3"><li><span style="border-bottom:0.05em solid"><strong><mark class="highlight-blue">Scanner →</mark></strong></span> A scanner is a input device that translate paper documents into electronic forms.<p id="05b4a8b1-d010-4568-bb87-0151ec6a9a57" class="">There are 2 types of scanners :<div class="indented"><ul id="083d1725-9b9e-4e29-99e4-6ea8c9ecd346" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><strong><span style="border-bottom:0.05em solid">Handheld scanner </span></strong></mark>→ In this type of scanners a set of bed lights are used to scan special printed symbol like barcode or QR code.</li></ul><ul id="be75f361-b4a0-4534-8ab8-8a97472c422d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Flatbed scanner →</strong></span></mark><ul id="333b637c-5059-493e-abbe-750f3ef47bb9" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal"><span style="border-bottom:0.05em solid"><strong>OCR (Optical character recognizer)</strong></span></mark><mark class="highlight-teal"><strong> </strong></mark><strong>→</strong> It is a type of image scanner that can be used to scan variety of documents like pictures, graphics and written notes. The OCR scanner supported by an OCR software which converts an image into its ASCII code.</li></ul></li></ul></div></p></li></ol></div></p><p id="4a1f7333-31a1-4fe4-8c66-0b61eec3ce75" class=""> MICR, OMR</p><h2 id="183b0d1a-880d-4b79-9a6c-4434d67b8286" class="">Output Devices: </h2><p id="baad25fe-5c72-4615-847c-662fb05239bc" class="">VDU</p><h2 id="36db2ef5-80ee-4052-b57e-00ec44438a1d" class="">Printers: </h2><p id="36d39e86-408c-4487-ad62-0504a2606ae0" class="">Dot Matrix, Daisy-wheel, Inkjet, Laser, Line Printers, and Plotters.</p><p id="8c19c409-3f9e-4b12-b5e1-548eb8a02bc4" class="">
+</p><h1 id="5a28f679-99ff-42a8-ba98-8b8bacc0714f" class="">4. <strong>Computer Memory:</strong> </h1><h2 id="a6b4ba81-a097-4034-98cf-4f9244920bf2" class="">Memory: </h2><ul id="93c827bf-4d18-457e-870d-ae467e2944fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary memory/ Main memory →</strong><ul id="15a3502f-f925-4b5c-8b7f-538e5c923ab4" class="bulleted-list"><li style="list-style-type:circle">Primary memory is the one of the most important component of the computer architecture . Here the data and instruction are temporarily store and it’s mainly used for processing.</li></ul><ul id="46003ae0-ad18-4751-bd25-a4ad02a81a66" class="bulleted-list"><li style="list-style-type:circle">CPU can directly access primary memory.</li></ul><ul id="2e5d5d43-f0e0-4c7b-9873-01c9398fb32b" class="bulleted-list"><li style="list-style-type:circle">They are volatile memory, which mean they lose the data when computer is turned off.</li></ul><ul id="18d13ffd-83cc-4d5a-b3e3-84cdadd07134" class="bulleted-list"><li style="list-style-type:circle">Compared to secondary memory, A primary memory has faster access time.</li></ul><ul id="3ac5b103-9bdf-4c1a-809e-026547425376" class="bulleted-list"><li style="list-style-type:circle">Per unit cost of primary memory is much higher then secondary memory.</li></ul></li></ul><ul id="5a7fdc59-8dbb-4e10-8a46-e535c9d86607" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>RAM (Random Access Memory)</strong></span></mark><strong> </strong>→ RAM is the main memory responsible for storing data and instructions currently being used by the processor. It acts as a temporary workspace, allowing the processor to quickly access and manipulate information it needs to perform tasks.<ul id="3f4cffc8-1108-4956-adcd-3ece357104c5" class="bulleted-list"><li style="list-style-type:circle"><strong>There are 2 types of RAM : </strong><ul id="ca9d4758-d1d0-4a6a-a72e-0aace876ce09" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>S-RAM (Static Random Access Memory) </strong></span></mark><strong>→ </strong>S-RAM can hold the data as long as the power availability is there. It is refreshed simultaneously to store the present information. It is made with CMOS technology. It contains 4 to 6 transistors and it also uses clocks. It does not require a periodic refresh cycle due to the presence of transistors. Although SRAM is faster, it requires more power and is more expensive in nature.</li></ul><ul id="e1af7c06-2fb2-4240-bbae-b44bf5c7486f" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>D-RAM (Dynamic Random Access Memory) </strong></span></mark><strong>→</strong></li></ul></li></ul><ul id="f5ff1032-9d04-47d6-b83a-316da6811870" class="bulleted-list"><li style="list-style-type:circle"><strong>Difference between S-RAM and D-RAM :</strong><table id="cfd37910-f680-4473-bb90-f297a2d8a1b9" class="simple-table"><tbody><tr id="fd4b32fe-47b1-4a6b-a818-bb048c1d7b1c"><td id="Gb=k" class="" style="width:372px">                                     <strong>S-RAM</strong></td><td id="xb\{" class="" style="width:355px">                                     <strong>D-RAM</strong></td></tr><tr id="71f0d77b-687c-4966-b513-5d083ba27a90"><td id="Gb=k" class="" style="width:372px">1. They are made of transistor.</td><td id="xb\{" class="" style="width:355px">1. They are made of capacitor.</td></tr><tr id="6769f064-82d3-4f3a-b119-eb8bc2b73fde"><td id="Gb=k" class="" style="width:372px">2. Transistor do not required to be refresh periodically.</td><td id="xb\{" class="" style="width:355px">2. Capacitor do required to be refresh periodically.</td></tr><tr id="3f85c81c-3d07-4f30-9430-50bf7c87db1b"><td id="Gb=k" class="" style="width:372px">3. S-RAM are faster than D-RAM.</td><td id="xb\{" class="" style="width:355px">3. D-RAM are slower than S-RAM.</td></tr><tr id="6fdd94c8-3f38-44ba-9681-45f8449ef27e"><td id="Gb=k" class="" style="width:372px">4. More expensive than D-RAM. </td><td id="xb\{" class="" style="width:355px">4. Cheaper than S-RAM.</td></tr><tr id="a58579e9-1cb2-4e92-b386-ad5b05381107"><td id="Gb=k" class="" style="width:372px">5. They consume more power than D-RAM.</td><td id="xb\{" class="" style="width:355px">5. They consume less power than S-RAM.</td></tr><tr id="6c099675-d436-4624-8773-3548b9283fb3"><td id="Gb=k" class="" style="width:372px">6. They are used to implement cache memory.</td><td id="xb\{" class="" style="width:355px">6. They are used to implement RAM.</td></tr></tbody></table></li></ul></li></ul><ul id="a52cf53c-60c5-49bd-a2e8-3df2d7f22edd" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>ROM (Read Only Memory) </strong></mark></span><strong>→ </strong>This are special type of primary memory where we can not change the data, It is a nonvolatile memory which means when the computer power is turned off the data is not lost.<ul id="e5815fda-94c4-4a55-a246-162c8148088d" class="bulleted-list"><li style="list-style-type:circle"><strong>There are 3 Types of ROM :</strong><ul id="be462951-4173-4c2b-aff6-135229d79094" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>PROM (Programmable Read Only Memory)</strong></span></mark><strong>  → </strong>This type of ROM can be program by the user, The process of programming ROM is Known as burning.  Once the data is program in the ROM it can not be modify.</li></ul><ul id="64cf9455-668a-4642-adb1-675ff6345176" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>EPROM (Erasable Programmable Read Only Memory) </strong></span></mark><strong>→ </strong>This type of ROM Overcomes the problem of PROM by allow the user to program as well as erase the data in chip. We erase the data from EPROM using Ultraviolet Rays.</li></ul><ul id="561b2438-1f10-47f3-9901-4031de378698" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>EEPROM (Electrically Erasable Programmable Read Only Memory)</strong></span></mark><strong> → </strong>This type of ROM overcomes the problem of erasing the ROM using UV rays by using electricity. EEPROM known as flash memory.</li></ul></li></ul></li></ul><h2 id="378a67d6-2f1d-4941-825c-79fded47d15f" class="">Secondary Storage Devices: </h2><p id="e8656a0e-6f5b-4eb7-82de-e50d9917be8e" class="">Magnetic Tape, Magnetic Disk, Compact Disk.</p><p id="e95e4298-1022-4f55-a86f-8a619f05d7fa" class="">
+</p><h1 id="b1031262-e4e5-4237-b448-5f280f8ec713" class="">5. <strong>Computer Language and Software:</strong> </h1><h2 id="b1dafa66-c55c-46f4-8c8f-e53daaf6615b" class=""><strong>Algorithms → </strong></h2><p id="9e11509e-ed04-4c50-a617-57d94a8c3154" class="">Planning a program before actually implementing it using a programming language. like C, C++, Java, Python, etc.<div class="indented"><p id="b17a19c9-9dd5-4d17-8b59-d1f1bdb0ee28" class="">An algorithm is a step by step description of how to arrive at a solution of a  given problem.</p></div></p><ul id="d931a148-8136-4a99-9219-c0610b13ad29" class="bulleted-list"><li style="list-style-type:disc"><strong>Characteristic of an algorithm →</strong><ul id="168c2c2e-aa36-426d-b9f9-ac3623e8f9a2" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Clear and Unambiguous</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid">: </span></mark>The algorithm should be unambiguous. Each of its steps should be clear in all aspects and must lead to only one meaning.</li></ul><ul id="24801c04-8535-4ec2-bfa0-e3d15a92729b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Well-Defined Inputs</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid">:</span></mark> If an algorithm says to take inputs, it should be well-defined inputs. It may or may not take input.</li></ul><ul id="17b23fac-0048-428c-a954-d4193c6345a1" class="bulleted-list"><li style="list-style-type:circle"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Well-Defined Outputs:</strong></mark></span> The algorithm must clearly define what output will be yielded and it should be well-defined as well. It should produce at least 1 output.</li></ul><ul id="a725a649-4e27-4b73-8802-ff70390e3207" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Finite-ness:</strong></span></mark> The algorithm must be finite, i.e. it should terminate after a finite time.</li></ul><ul id="75c0d993-6759-4499-8866-6ffbdb05dd21" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Feasible:</strong></span></mark> The algorithm must be simple, generic, and practical, such that it can be executed with the available resources. It must not contain some future technology or anything.</li></ul><ul id="9f9e587e-bd7a-4cde-bdc8-daa01e67333e" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Language Independent:</strong></span></mark> The Algorithm designed must be language-independent, i.e. it must be just plain instructions that can be implemented in any language, and yet the output will be the same, as expected.</li></ul><ul id="fafa4743-dd8a-4347-99ec-0fb351a2ff60" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Input</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid">:</span></mark> An algorithm has zero or more inputs. Each that contains a fundamental operator must accept zero or more inputs.</li></ul><ul id="f548c3d3-6d4f-44ab-9bf4-6cd411fa10f2" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Output</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid">:</span></mark> An algorithm produces at least one output. Every instruction that contains a fundamental operator must accept zero or more inputs.</li></ul><ul id="01be578a-814b-4189-994e-a7d2e477e86e" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Definiteness:</strong></span></mark> All instructions in an algorithm must be unambiguous, precise, and easy to interpret. By referring to any of the instructions in an algorithm one can clearly understand what is to be done. Every fundamental operator in instruction must be defined without any ambiguity.</li></ul><ul id="d715c6b5-4659-4007-9588-cb89558d59f4" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Finiteness:</strong></span></mark> An algorithm must terminate after a finite number of steps in all test cases. Every instruction which contains a fundamental operator must be terminated within a finite amount of time. Infinite loops or recursive functions without base conditions do not possess finiteness.</li></ul><ul id="2fb2030e-c989-49f0-8bde-0f4df0cb212c" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Effectiveness:</strong></span></mark><strong> </strong>An algorithm must be developed by using very basic, simple, and feasible operations so that one can trace it out by using just paper and pencil.</li></ul></li></ul><h2 id="e5e4bfb8-598f-4ecf-927b-d2827dd6a45d" class=""><strong>Flowcharts → </strong></h2><p id="81ecfbed-aa4e-4f68-9953-082233ca306e" class="">This is a pictorial representation of an algorithm. This draws out all the steps of your approach in order.</p><div id="597dfc75-e2b3-4e57-ac46-5b938f8d6b1e" class="column-list"><div id="70925841-55f2-49c9-b84a-a5d4563edd22" style="width:4.166666666666666%" class="column"><p id="f3edfa93-446f-46e0-b600-36e4693435c0" class="">
+</p></div><div id="ed381683-6332-4359-bd1f-302b466b5bd1" style="width:33.33333333333333%" class="column"><figure id="c531b543-1424-48ba-9134-e768a1c426a3" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Screenshot_2023-12-27_142744.png"><img style="width:480px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Screenshot_2023-12-27_142744.png"/></a></figure><p id="43989dbf-397e-4a4d-b604-e6416590cbf7" class="">
+</p></div><div id="0c686ad4-1b8c-4614-9250-02e0ddbbe11d" style="width:62.500000000000014%" class="column"><figure id="b47b46b1-f428-43d5-acc4-eeff27ade49f" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Screenshot_2023-12-27_142758.png"><img style="width:384px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Screenshot_2023-12-27_142758.png"/></a></figure><p id="9ba6da46-cd4a-4c98-8f7f-ab6e64d34ef2" class="">
+</p></div></div><h2 id="8a04b4a6-7711-4d65-91d3-8f23669db106" class=""><mark class="highlight-default"><strong>High-level Language →</strong></mark></h2><p id="3afe3e62-a5b6-4dc3-9493-71997ce1da71" class="">High-level Language is a type of language which is written in English like syntax. This type of language are more suitable for human being to understand, modified and analyze.<div class="indented"><p id="b29e6f6a-26c2-4862-b1e1-c1de7c82b861" class="">Some of the example of high level language is : Fortran, C++, Java, Python, etc.</p></div></p><p id="137c06c2-e569-450e-959f-c72dfbdc08b2" class="">Although they are easy to understand but to write a high level language we must have a basic understanding of programming.</p><p id="981c0edc-6da7-48f0-a585-7bf5a52e595a" class="">A high level language can’t be directly executed by a computer, generally a high level language is platform independent.</p><figure id="6d949914-64aa-4126-8dd1-092ef77ba434" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Untitled.png"><img style="width:864px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/Untitled.png"/></a></figure><h2 id="c2f4dc50-0363-4efb-931a-8e1cca2e3974" class=""><strong>Assembly Language →</strong></h2><p id="01e484f8-db8a-4435-95f7-d9835a01414c" class="">An assembly language is a type of language that is created by executing a High Level Language with an assembler, This type of language can communicate directly with your hardware and it is platform dependent.</p><p id="068f008a-35f6-4f3f-bd42-a028a8ce5daf" class="">For example : The High Level statement “C=A+B” will be converted into “ADD A,B”. In assembly language we use MNEMONICS for every operation.</p><h2 id="a4e7d2e8-2f73-40f8-8c7d-eff811ffeded" class=""><strong>Machine Language →</strong></h2><p id="853e9372-981f-4ee1-882a-0bd50bf60aa4" class="">This is a type of language written in 0 and 1. A computer can understand machine language so we need a special type of translator to convert High Level Language to Low Level Language.<div class="indented"><p id="293dd7d1-7716-479b-a695-1e7d5cd658d2" class=""><strong>There are 2 types of translator software :</strong></p><ol type="1" id="0969bb72-a6ac-4d30-8d40-f06d8ecfe26e" class="numbered-list" start="1"><li>Compiler</li></ol><ol type="1" id="7dd0ec1d-9187-42f9-bcc0-9150d36a28fc" class="numbered-list" start="2"><li>Interpreter</li></ol></div></p><h2 id="545c3627-c80b-4ff8-a020-a0392deb4fbb" class=""><strong>Compiler → </strong></h2><p id="19fe506a-eb27-45e0-ad64-bf028eb0c92c" class="">A compiler is a special type of translator program that convert High Level Language written in some programming language into machine understandable Low Level Language.</p><h2 id="0295f4ab-cfa6-4106-ac8b-8f9bfbb5dc26" class=""><strong>Interpreter →</strong> </h2><p id="c24bba9d-6c35-4092-8ce2-25d9f903a7fc" class="">This is also a type of language translator software like compiler but the only difference is that it’s converts source code line by line.</p><h2 id="7686865a-d4dc-45ef-9d6f-5585aa5e19a0" class=""><strong>Assembler → </strong></h2><p id="d72669c6-2691-41e2-be07-4f6f69bf22df" class="">An assembler is a software program that translates assembly language code into machine code. Assembly language is a low-level programming language that closely resembles the machine code understood by a computer&#x27;s processor.</p><ul id="57f5b530-39eb-470e-ae46-e7b856632146" class="bulleted-list"><li style="list-style-type:disc"><strong>Difference between compiler and interpreter :</strong><table id="71ea22a7-dcbb-4cef-b7bb-0fc311f69e9b" class="simple-table"><tbody><tr id="8b17b8ba-f3d8-4a3e-a0a0-f02997fba762"><td id="}B`f" class="" style="width:349px">                                  <strong>Compiler</strong></td><td id="c:O\" class="" style="width:350px">                                  <strong>Interpreter</strong></td></tr><tr id="6a4f9e30-a519-489b-9f57-384754c10fbe"><td id="}B`f" class="" style="width:349px">1. A computer translate the source code in a single pass.</td><td id="c:O\" class="" style="width:350px">1. A interpreter translate the source sone line by line.</td></tr><tr id="38e3fbd8-4445-4301-991e-8792887276bd"><td id="}B`f" class="" style="width:349px">2. Compiler are faster than interpreter.</td><td id="c:O\" class="" style="width:350px">2. interpreter are slower than compiler.</td></tr><tr id="f4c47a49-6543-4582-b11e-330e08423d1d"><td id="}B`f" class="" style="width:349px">3. In compiler while debugging all the error are listed to us.</td><td id="c:O\" class="" style="width:350px">3. In interpreter when a error occurs, it stop at the first line where the error occurred.</td></tr><tr id="dd57aa41-f798-412b-9546-a175939a0245"><td id="}B`f" class="" style="width:349px">4. Programming language like C, C++, Java use compiler. </td><td id="c:O\" class="" style="width:350px">4. Programming language like Python, JavaScript use interpreter.</td></tr></tbody></table></li></ul><h2 id="72432971-33f5-4416-83ad-3269302e508d" class="">Software: </h2><p id="6d9bff8b-e120-4382-a303-b6bb3e5e0f5d" class="">System and Application Software</p><p id="7f212dc9-3a72-48eb-abdc-04548db94350" class="">
+</p><h1 id="a99b0b2d-8ae6-478b-832d-b1c01cbb44e8" class="">6. <strong>Operating System:</strong> </h1><p id="d4789df7-09ee-4830-85eb-f91f1f90dc6f" class="">Functions of Operating System</p><p id="9d9a92e1-1efd-49d0-858f-5f1598475baf" class="">Types of Operating Systems</p><p id="75eafa51-1305-45d9-9f38-cee3f3c20601" class="">Introduction and Features of LINUX OS</p><p id="2ee7b388-f7f1-45b5-b208-e5cf57e857e3" class="">
+</p><h1 id="51a90630-c37e-4d0d-991e-ef047cb06bdf" class="">7. <strong>Networking:</strong> </h1><h2 id="5a15774b-6019-4d87-a5fd-47bd8704778f" class="">Computer Network →</h2><p id="a4320861-bc8d-4625-9b55-2d3489df4147" class="">→ <strong>1.</strong> A computer network is interconnected between two or more computer’s for the purpose of sharing data, information and resources.<div class="indented"><p id="15569414-617f-41c5-9a9f-3a92e5b3f62b" class="">Each computer connected to a network is known as a host. <strong><mark class="highlight-red">(In college.)</mark></strong></p></div></p><ol type="1" id="47062593-6db8-45ca-bd4b-d33bc09c90cf" class="numbered-list" start="2"><li>A computer network is a telecommunication network which allows digital devices to exchange data between each other using either wire or wireless connection to share resources.<p id="3581d47c-ba51-4ca3-b55a-e904d9268c3c" class="">It is a collection of autonomous computers interconnected by a single technology.</p><p id="6918c5f7-dd9c-437b-8174-1afd766aac0d" class="">Network comes in many sizes, shapes and forms.</p><p id="dc79b06b-293f-4193-acb4-971109c92884" class="">They are usually connected together to make larger network.</p><p id="82d7f85e-d661-41ca-b97b-dffa6d3f3802" class="">Internet being the most well known example of network of network. <strong><mark class="highlight-red">(In Tuition)</mark></strong></p></li></ol><ul id="3151b753-9a82-46ec-8e84-aba4ab5b087a" class="bulleted-list"><li style="list-style-type:disc"><strong>Basic Elements of a Communication System→</strong><ul id="927f25f8-1cad-4ade-9ea7-b6fde65367ac" class="bulleted-list"><li style="list-style-type:circle"><strong>There are 5 components :</strong><ol type="1" id="debf6efa-9565-4825-ad7c-ddd9a9f4b339" class="numbered-list" start="1"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Massage</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ Information to be communicated. (audio, video, etc.)</li></ol><ol type="1" id="8a639956-575b-4ee0-8c07-c8ec7afe974b" class="numbered-list" start="2"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Sender</strong></span></mark><strong> </strong>→ A sender is a host that creates and sends the data. (Keyboard, remote, etc.)</li></ol><ol type="1" id="81728fab-9365-487b-a87b-5209695d05f3" class="numbered-list" start="3"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Receiver</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ A receiver is a host that accepts the data. (monitor, radio, etc.)</li></ol><ol type="1" id="b80db658-8e8d-417e-8e11-d3d8da9cfd23" class="numbered-list" start="4"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Transmission medium</strong></span></mark><strong> </strong>→ Transmission medium is the element that caries the massage from source to destination. there are two type of transmission medium.<ol type="a" id="86a1e024-1229-4e3c-8254-e3d8fc399eae" class="numbered-list" start="1"><li>Guided medium.</li></ol><ol type="a" id="eb6a2b41-fbd3-4d2f-803f-ce2fd5c183d5" class="numbered-list" start="2"><li>Unguided medium.</li></ol></li></ol><ol type="1" id="f8df0569-2974-44b7-bb48-a8acc823f2b3" class="numbered-list" start="5"><li><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Protocol </strong></span></mark><strong>→ </strong>Set of rules that governs that data communication.</li></ol></li></ul><figure id="fd46d520-fcb2-4346-a3b0-4cd1b7276730" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-24_at_9.01.42_AM.jpeg"><img style="width:528px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-24_at_9.01.42_AM.jpeg"/></a></figure></li></ul><ul id="71448f04-fe54-43d1-9797-28ba3e7ef1a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Data transmission modes →</strong><ul id="398be6ed-1daf-453e-adeb-396275454133" class="bulleted-list"><li style="list-style-type:circle"><strong>There are 3 types of data transmission modes :</strong><ul id="c7d9a719-299d-479c-ac37-93241e88503e" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>simplex</strong></span></mark><mark class="highlight-yellow"><strong> </strong></mark><strong>→</strong> Here two interconnected devices exchange information or transmitted data in one direction only that is allows sender to receiver. <figure id="3442f139-d5fb-4c9e-b3b9-8132b80219e8" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfullduple2x.jpg"><img style="width:672px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfullduple2x.jpg"/></a></figure></li></ul><ul id="163b37e2-4118-4c89-b1b3-796445d33b33" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Half-duplex</strong></span></mark><mark class="highlight-yellow"><strong> </strong></mark><strong>→</strong> Here two interconnected devices wish to exchange data alternatively that is sender to receiver and vise-versa, but transmitted data from one direction at a time. It is also known as semi duplex mode.<figure id="237ca431-dcd7-4cb4-bdd4-348ee3a4aeb9" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfullduplex.jpg"><img style="width:672px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfullduplex.jpg"/></a></figure></li></ul><ul id="b7ec0150-b762-4989-b3ab-dfd4d0ae008b" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Duplex or Full-duplex</strong></span></mark><mark class="highlight-yellow"><strong> </strong></mark><strong>→</strong> Here two interconnected devices wish to exchange data and information in both direction simultaneously that is data transmitted is both direction at a certain time. Here data flow is by-directional in nature.<figure id="38760bef-8d61-4bde-82d6-c573d32a323c" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfulldukplex.jpg"><img style="width:672px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/simplexhalfduplexfulldukplex.jpg"/></a></figure></li></ul></li></ul><ul id="8cfb1cb0-29c8-482f-9357-5103118214c4" class="bulleted-list"><li style="list-style-type:circle"><strong>Comparison chart :</strong><table id="fc81ae0f-d738-443b-9421-8875ffe3c9fc" class="simple-table"><tbody><tr id="18dce3ea-065f-450f-b00d-2220822fbb35"><td id="wIRX" class=""><strong>Parameters</strong></td><td id="_?n`" class=""><strong>Simplex</strong></td><td id="&lt;ifT" class=""><strong>Half-duplex</strong></td><td id="TcW{" class=""><strong>Full-duplex</strong></td></tr><tr id="e4e0df01-040e-4905-a641-378601cddce1"><td id="wIRX" class="">Direction of communication</td><td id="_?n`" class="">Unidirectional</td><td id="&lt;ifT" class="">Bidirectional, but one side at a time</td><td id="TcW{" class="">Bidirectional, simultaneously </td></tr><tr id="3d55d236-416b-4acd-a78d-97ff957c07c3"><td id="wIRX" class="">Sender and receiver</td><td id="_?n`" class="">A device can either send or receive the data.</td><td id="&lt;ifT" class="">Both the device can send and receive the data, but one at a time.</td><td id="TcW{" class="">Both the device can send and receive the data simultaneously .</td></tr><tr id="7b3bfad1-c323-4fb8-85e1-23889ce97927"><td id="wIRX" class="">Cost of transmission</td><td id="_?n`" class="">Cheapest</td><td id="&lt;ifT" class="">Average</td><td id="TcW{" class="">Expensive</td></tr><tr id="b4f85460-3670-4bdc-9f3f-6bb4862dd547"><td id="wIRX" class="">Performance efficiency</td><td id="_?n`" class="">Low</td><td id="&lt;ifT" class="">Medium</td><td id="TcW{" class="">High</td></tr><tr id="d164415f-6c5c-4f71-bcc6-431ab4f8e8ce"><td id="wIRX" class="">Example</td><td id="_?n`" class="">Remote to TV.</td><td id="&lt;ifT" class="">Data transmission in walkie talkie</td><td id="TcW{" class="">Voice channel</td></tr></tbody></table></li></ul></li></ul><ul id="df8e44ef-f322-4218-b56c-bc838e13b7b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Transmission Media→</strong><figure id="84a2cf9c-410d-40fb-ad31-e75c7508c8f3" class="image" style="text-align:left"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/guideds_media.jpg"><img style="width:624px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/guideds_media.jpg"/></a></figure><ul id="74f8f4bb-f972-4ae2-9d46-bb63a71317b7" class="bulleted-list"><li style="list-style-type:circle"><strong>Guided Media →</strong><p id="643a1144-df96-413c-8df1-ef784f8c6ec4" class="">It is also known as wires signals being transmitted are directed in a narrow pathway by using physical link.</p><ul id="d5532985-95b0-43b3-8fe8-6a75beb22a01" class="bulleted-list"><li style="list-style-type:square"><strong>The feature of guided media are →</strong><ol type="1" id="718ddc1e-f82b-4dbc-b41c-77528f3c3e02" class="numbered-list" start="1"><li>High speed</li></ol><ol type="1" id="faa39ad0-1911-4947-a901-6e8c993d8736" class="numbered-list" start="2"><li>Secure</li></ol><ol type="1" id="d34eb835-c99f-4abe-89a0-b8304b280ae2" class="numbered-list" start="3"><li>They are mainly use for sort distance communication</li></ol></li></ul><ul id="bcb3f3d7-e3ed-4ed5-8833-7a23820caf2c" class="bulleted-list"><li style="list-style-type:square"><strong>There are 3 major types of guided media →</strong><ol type="1" id="f138b00c-e581-4bdf-a998-bbd0cb101ea1" class="numbered-list" start="1"><li>Twisted Pair</li></ol><ol type="1" id="3f1b17a7-e595-4ad5-add2-c11dd3202b4a" class="numbered-list" start="2"><li>So-Axial Cable</li></ol><ol type="1" id="bfd447a9-fbd8-49fe-be63-aa7a8d288299" class="numbered-list" start="3"><li>Optical Fiber</li></ol></li></ul></li></ul><ul id="acdca58b-8d23-437f-9564-365adcb69087" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Twisted Pair →</strong></span></mark></li></ul><figure id="e000f7a9-6bf1-4b1f-8864-7b5350752ec7" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-27_at_11.55.33_AM.jpeg"><img style="width:432px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-27_at_11.55.33_AM.jpeg"/></a></figure><p id="6e72fb7f-8445-4558-9b25-459c0d3f2e2a" class="">→ A twisted pair consist of two insulated copper wire then twisted around each other to reduce interference from nearby wires.<div class="indented"><p id="08909039-105d-4a9b-a194-eb1045b9fd33" class="">A twisted pair is used in sort distance communication (1km). They are cheap, easy to install but they are easily pickup noises which causes error during transmission.</p><figure id="b3f095c9-f229-4436-80bb-0a0e18bd497c" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/twist_1.jpg"><img style="width:240px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/twist_1.jpg"/></a></figure></div></p><ul id="44c9c37c-5719-4115-a611-d1bde473bade" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>So-Axial Cable →</strong></span></mark><figure id="909083fd-b12e-450a-ae3c-8b84991f0e10" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-27_at_11.55.33_AM_(1).jpeg"><img style="width:624px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-27_at_11.55.33_AM_(1).jpeg"/></a></figure><p id="c0ef37dc-db50-4233-875a-2f2ae2a92d2e" class="">→ A co-axial cable consist of a central copper wire which is surrounded by a PVC insulator, The PVC insulator is enclosed by a copper mesh which reduces interference from outside environment.<div class="indented"><p id="8c34efb6-5c16-4653-bf25-090d99efc9a0" class="">They provide higher bandwidth than twisted pair. They allow long distance communication (10-100km). Further more they have higher immunity from noise.</p><figure id="2ea325c9-3406-4eb6-8420-ad5117bbad07" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/OIP.jpg"><img style="width:336px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/OIP.jpg"/></a></figure></div></p></li></ul><ul id="ea1b7ddd-751b-4df9-8076-4717cd331315" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Optical Fiber →</strong></span></mark><figure id="a0c57e51-7ecb-403d-ba1e-e6b4e91df319" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/fiber-optic-cable-anatomy-diagram-01.jpg"><img style="width:384px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/fiber-optic-cable-anatomy-diagram-01.jpg"/></a></figure><p id="e1f1fb72-b663-4c3a-9526-3b08e0059b23" class="">→ A fiber optic cable is a cable that contains one or more strands of thin, hair-like glass or plastic fibers that can transmit light. These fibers are used to carry data over long distances at high speeds. It is similar to an electrical cable, but uses light pulses instead of electrical currents to transmit information.</p><p id="06eb3cdf-d515-42a8-8df5-ddbd77483cb5" class="">
+</p></li></ul><ul id="6d8c67c3-d861-4860-ab66-79a96d0bc1ca" class="bulleted-list"><li style="list-style-type:circle"><strong>Unguided Media →</strong><p id="3f1928b4-814d-4d9c-b294-24059efb8367" class="">Unguided media is wireless communication that uses signals such as radio waves, microwaves, infrared and satellite communication. It provides flexible and mobile communication but can suffer from interference and limited bandwidth.</p><ul id="e9977c05-d988-4cc7-b318-9a93214b524f" class="bulleted-list"><li style="list-style-type:square"><strong>The feature of guided media are →</strong><ol type="1" id="141811f7-49d6-408a-a85e-2f475b4237bd" class="numbered-list" start="1"><li>Flexibility</li></ol><ol type="1" id="f3022bee-ee4b-4d6f-8461-6cdb8c0fcb4f" class="numbered-list" start="2"><li>Mobility</li></ol><ol type="1" id="99c38995-75c1-4fd5-82d2-5637af18c15a" class="numbered-list" start="3"><li>Allowing devices to communicate without the need for physical connections.</li></ol><ol type="1" id="8b25b797-b559-43d1-bce4-15e120de63da" class="numbered-list" start="4"><li>Susceptible to interference.</li></ol></li></ul><ul id="535c70a4-0d9e-4d1e-8a6b-47d0b3be5bd3" class="bulleted-list"><li style="list-style-type:square"><strong>Types of Unguided Media →</strong><ul id="2fb187b8-57bc-465f-b300-aa3d94da8b78" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Radio waves:</strong></span></mark> Used for radio and television broadcasting, wireless networking, and mobile phone communication.</li></ul><ul id="7ca4b857-edae-4844-b38e-8559c1ffc2e7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Microwaves:</strong></span></mark> Employed in satellite communication, Wi-Fi, and radar systems.</li></ul><ul id="8935f981-65fa-4bcd-aa1d-8e5092dcbd86" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Infrared:</strong></span></mark> Used for short-range communication like TV remote controls and data transfer between nearby devices.</li></ul><ul id="ea8aba08-9df3-4b05-b2ca-9d16fd5cb86a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Satellite signals:</strong></span></mark> Enable GPS navigation, satellite TV, and long-distance data transmission.</li></ul></li></ul></li></ul></li></ul><ul id="323d9a85-73be-4ee0-a9cc-370782bfd2a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Topologies →</strong><ul id="836321f6-6ce2-4a26-8392-ff921561d2e5" class="bulleted-list"><li style="list-style-type:circle"><strong>Network Topologies →</strong><ul id="410f917c-b6be-499a-9f1a-0f4ed91b3a66" class="bulleted-list"><li style="list-style-type:square">The physical arrangement of a network of the layout of the network is called the network topology.</li></ul></li></ul><ul id="f8bb8958-b87a-40f5-b654-88c9b1b7751b" class="bulleted-list"><li style="list-style-type:circle"><strong>Types of network topologies →</strong><ul id="01850466-d74d-4042-bca1-8b74e70d7e70" class="bulleted-list"><li style="list-style-type:square">Bus topology</li></ul><ul id="aea83482-20e5-48b6-94de-016446305f63" class="bulleted-list"><li style="list-style-type:square">Mesh topology</li></ul><ul id="2eb8033c-505b-491d-ab57-0a56c97c6b82" class="bulleted-list"><li style="list-style-type:square">Ring topology</li></ul><ul id="fe48e36b-b827-4d63-ba2a-55590decfb8d" class="bulleted-list"><li style="list-style-type:square">Star topology</li></ul><ul id="8950276d-7fa3-4aa8-8455-04642070aa2a" class="bulleted-list"><li style="list-style-type:square">Tree topology</li></ul><ul id="58c2a6e6-9707-46e6-bacc-5d2fa3617ba0" class="bulleted-list"><li style="list-style-type:square">Hybrid topology</li></ul></li></ul></li></ul><p id="e5f6d70b-aa6f-4b14-be09-8d4b61aa7076" class=""><div class="indented"><ul id="db48cd22-a8f8-4652-a766-153eb5927b57" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Bus topology →</strong></span></mark><figure id="b9d68076-e8a1-4982-bfb1-d8bb35b79037" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.15_AM.jpeg"><img style="width:576px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.15_AM.jpeg"/></a></figure><ul id="0790e447-bbb7-4774-9e14-82fbee1a7524" class="bulleted-list"><li style="list-style-type:circle">A bus topology is a multipoint connection of rows because every node is connected to a single cable. <p id="32718464-d3be-4651-bae5-c1ed5f5cbd56" class="">The main cable is the backbone of the network. In bus topology since the data can travel only trough one path so there is a chance of data collision.</p><table id="a74509e3-6766-4e41-93e0-b5985405d6aa" class="simple-table"><tbody><tr id="d49543f8-e90d-4f94-b88b-0196c63bd126"><td id="e?KD" class="" style="width:311.5px">                           <strong>Advantage</strong></td><td id="KvTD" class="" style="width:338px">                          <strong>Disadvantage</strong></td></tr><tr id="d3b4b1a5-4516-4ff0-8330-70abef47ceed"><td id="e?KD" class="" style="width:311.5px">1. Simple architecture.</td><td id="KvTD" class="" style="width:338px">1. A crack in a signal can be break the network.</td></tr><tr id="d3cf42fd-3cb0-4f01-a8db-e13f8a1acf64"><td id="e?KD" class="" style="width:311.5px">2. Installation cost is very low.</td><td id="KvTD" class="" style="width:338px">2. Only a single signal can be transmitted at a time.</td></tr><tr id="aff84236-e05a-42ab-9d15-cbb2d658b2c0"><td id="e?KD" class="" style="width:311.5px">3. It is very easy to add a new node.</td><td id="KvTD" class="" style="width:338px"></td></tr></tbody></table></li></ul></li></ul><ul id="9bd1290a-c0ac-4b60-8dfb-acda9b7efb33" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Mesh topology →</strong></span></mark><figure id="c511c6d1-4187-4bd3-8e4c-bb3eab542430" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM_(2).jpeg"><img style="width:576px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM_(2).jpeg"/></a></figure><ul id="25801234-755d-4886-8345-155642767dca" class="bulleted-list"><li style="list-style-type:circle">In a mesh topology every device has a single dedicated line to every other device in the network. <p id="8664beb8-288a-4ca3-ac0d-f8c06cbdebfe" class="">In a mesh topology if there are n numbers of node then there will be “n(n-1)/2” number of cables/units there for every device must have n-1 ports.</p><ul id="2b3ed751-d536-4a82-93a7-9c08b92bc64f" class="bulleted-list"><li style="list-style-type:square"><strong><mark class="highlight-red">NOTE → No. of cable = n(n-1)</mark></strong><p id="20745091-376e-442a-bb83-f4eb145adce8" class=""><strong><mark class="highlight-red">Where n = no. of nodes.</mark></strong></p></li></ul><table id="a23952ec-abd1-45ee-95e9-6a034fdea310" class="simple-table"><tbody><tr id="68aee359-f22a-4468-aaa7-d0421987df58"><td id="e?KD" class="" style="width:381px">                                    <strong>Advantage</strong></td><td id="KvTD" class="" style="width:336px">                                <strong>Disadvantage</strong></td></tr><tr id="98bde86a-7177-46ef-ae98-84610aba08d3"><td id="e?KD" class="" style="width:381px">1. There is no traffic problem as there is a dedicated point to point links for every computer.</td><td id="KvTD" class="" style="width:336px">1. Installation cost is high.</td></tr><tr id="8311f49a-bffd-4517-9637-9e513cac575e"><td id="e?KD" class="" style="width:381px">2. If a link fails, it does not effect the entire network</td><td id="KvTD" class="" style="width:336px">2. large amount of cable has required.</td></tr><tr id="e7e66877-189c-4e14-9caa-f2840df948ee"><td id="e?KD" class="" style="width:381px"></td><td id="KvTD" class="" style="width:336px">3. Maintenance is difficult.</td></tr><tr id="6707da48-02d8-4c57-a187-9c694d427a9d"><td id="e?KD" class="" style="width:381px"></td><td id="KvTD" class="" style="width:336px">4. It is very difficult to convert a new node.</td></tr></tbody></table></li></ul></li></ul><ul id="04380e86-de0c-4395-8c8a-fb4b30260c85" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Star topology →</strong></span></mark><figure id="d18a30b8-084b-48e8-ae4d-3e839cafb597" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.13_AM.jpeg"><img style="width:576px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.13_AM.jpeg"/></a></figure><ul id="bc866f26-efad-4997-9e50-29765866a5d2" class="bulleted-list"><li style="list-style-type:circle">In star topology every node communicate with another node in the network through a central hub. <p id="fe33cfcf-b2bf-41a7-947b-b8425aba6278" class="">The central hub acts as a point to point link in between two nodes. The hub also acts as a traffic control of data transmission, which enables a secure transmission of data.</p><table id="3e06d58d-213b-494f-8e03-e330b7641482" class="simple-table"><tbody><tr id="020f7117-7390-4b25-99c6-72534461e5f1"><td id="e?KD" class="" style="width:381px">                                    <strong>Advantage</strong></td><td id="KvTD" class="" style="width:336px">                                <strong>Disadvantage</strong></td></tr><tr id="d8854c52-f832-4b43-935f-f75ac3eadc92"><td id="e?KD" class="" style="width:381px">1. The star topology provides a more secure war of data transmission.</td><td id="KvTD" class="" style="width:336px">1. Star topology requires a central hub which is more expensive than a normal node.</td></tr><tr id="abc10a36-d002-4740-b5a5-cdcdc23cb186"><td id="e?KD" class="" style="width:381px">2. It is easy to setup and maintain.</td><td id="KvTD" class="" style="width:336px">2. If the hub goes down the entire network goes down.</td></tr><tr id="674764c7-b35d-4691-a9c9-efd888db72c9"><td id="e?KD" class="" style="width:381px">3. It requires less cable as compare to mesh topology.</td><td id="KvTD" class="" style="width:336px"></td></tr><tr id="aa7010f4-2d80-4650-a19c-afb045891edf"><td id="e?KD" class="" style="width:381px">4. Unlike bus topology there is no data collision.</td><td id="KvTD" class="" style="width:336px"></td></tr></tbody></table></li></ul></li></ul><ul id="9421e72a-3882-459c-8c3f-5d254087f9b1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Ring topology →</strong></span></mark><figure id="839c9b19-c8ff-4b3a-a96c-ce81d2eebc76" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM.jpeg"><img style="width:576px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM.jpeg"/></a></figure><ul id="c00db413-88cb-426b-8ad0-8f8f9ebf31f8" class="bulleted-list"><li style="list-style-type:circle">A ring topology is a network arrangement were devices are connected in a circular path. We can imagine ring topology as a bus topology were the end points are connected to form a ring. <p id="0722fcf6-cce3-46cf-9064-04f250e9d16e" class="">In a ring topology data can flow in clockwise direction or anticlockwise direction. </p><p id="f18b1e6d-cf39-45ce-843a-206f67a129c8" class="">In this type of topology we assume that the data has been transmitted successfully when as acknowledgement massage is received by the sender.</p><table id="08dc476c-a8ab-429f-b97c-c7933188ce51" class="simple-table"><tbody><tr id="cda052eb-504b-44a0-bf5f-7f937021eb6b"><td id="e?KD" class="" style="width:381px">                                    <strong>Advantage</strong></td><td id="KvTD" class="" style="width:336px">                                <strong>Disadvantage</strong></td></tr><tr id="c5b6cac2-ea03-4057-bef3-0f9cf19328a1"><td id="e?KD" class="" style="width:381px">1. If a ring topology is unidirectional there is no chance of data collision.</td><td id="KvTD" class="" style="width:336px">1. Due to the unidirectional nature of ring topology a data packet must trough all other nodes.</td></tr><tr id="3954b160-c6d8-4dc8-83b4-0de948d3bd1a"><td id="e?KD" class="" style="width:381px">2. The cost of installation is less.</td><td id="KvTD" class="" style="width:336px">2. It is very difficult to ass a new node to a network.</td></tr><tr id="1298280d-fa64-4827-a928-3d2259ed78d3"><td id="e?KD" class="" style="width:381px">3. There is no need of costly system like hub to manage the network.</td><td id="KvTD" class="" style="width:336px">3. It is very difficult to find a fault in the transmission medium.</td></tr><tr id="36579e68-a53d-4228-8af8-38111031548e"><td id="e?KD" class="" style="width:381px"></td><td id="KvTD" class="" style="width:336px">4. Even is there is a single crack in a cable the whole network become in-operational.</td></tr></tbody></table></li></ul></li></ul><ul id="9d230772-8a7a-4035-95ed-b3726f0f9bd1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Tree topology →</strong></span></mark><figure id="d0b550d5-559d-4da1-bd76-45bbd38198d3" class="image"><a href="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM_(1).jpeg"><img style="width:720px" src="Fundamental%20of%20Computers%2037875fe71bf94ff08e907872fb7bb798/WhatsApp_Image_2023-12-28_at_11.21.14_AM_(1).jpeg"/></a></figure><ul id="9dd41731-4678-46d2-bd41-b2485c13b8f8" class="bulleted-list"><li style="list-style-type:circle">A Tree topology is a combination of star and bus topology. It provides a hierarchical structure where the top most node is called the root. Each node is gives rise to two or more nodes, they are called the children nodes those nodes that does not have any child node are called the leaf node.</li></ul></li></ul><ul id="52a7c68b-352f-4e8f-9aa7-94521269a460" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"><strong>Hybrid topology → </strong></mark></span><ul id="7a0cdcc9-331a-49ff-aa7c-df0659ce7185" class="bulleted-list"><li style="list-style-type:circle">A hybrid topology is a combination of any two topology. In general we combine two topologies that can compliment each other, which means the drawback of one topology can be rectified with another topology.</li></ul><p id="fc6ed84a-1ca6-49dd-9493-43ae4e84e4f6" class="">
+</p></li></ul></div></p><ul id="60704bfe-050d-4bf4-8452-28e3477be469" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of computer network→</strong><p id="a5068a02-a7ca-400c-91d9-7dabec2b2304" class="">Computer network means a group of computer that are linked by means of a communication system.</p><p id="8aedcfb2-2e55-4932-8bf8-86dfc96eb282" class="">A computer network is a group of computer that enables then to communicate with one and other to share there resources, data, applications.</p><p id="d58699b2-e285-4cf9-97fe-b221f85ecfe9" class=""><strong>A computer network can be categorized by there size. It can be of 4 types →</strong><div class="indented"><ol type="1" id="6b4180a7-8e74-4b8c-8481-d10e1901064c" class="numbered-list" start="1"><li>Personal Area Network (PAN).</li></ol><ol type="1" id="2cb95142-3564-4bb6-81a0-ea783c569055" class="numbered-list" start="2"><li>Local Area Network (LAN).</li></ol><ol type="1" id="307ac690-250d-48ce-ae62-c496da09ca49" class="numbered-list" start="3"><li>Metro-political Area Network (MAN).</li></ol><ol type="1" id="33e1c9a1-6da6-4c28-b2f5-b9c41849faa1" class="numbered-list" start="4"><li>Wide Area Network (WAN).</li></ol></div></p></li></ul><h2 id="bec2b291-3514-4786-97bc-873da56c2aef" class="">Personal Area Network →</h2><ul id="f60e68c0-6484-4f0a-bfd5-6444583ed3e7" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Definition</strong></mark></span><strong> </strong>→ A personal area network is limited to a range of 10 meter. Generally it is use by a single individual.<p id="e75db588-dffb-460a-832a-4a9f98d597ca" class="">PAN involves transmission of data and information between smart phone, laptop, wireless audio devices, etc.</p></li></ul><ul id="cdf57f75-5684-4755-a946-7bd72862ac60" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Example </strong></mark></span><strong>→ </strong><ul id="354eea21-c924-430a-a60f-4798b4758758" class="bulleted-list"><li style="list-style-type:circle">Office network</li></ul><ul id="270fea89-d429-4344-ba16-de7659d062fb" class="bulleted-list"><li style="list-style-type:circle">Small home network </li></ul><ul id="f8bb301d-0522-4f0e-b0d3-305d805b7234" class="bulleted-list"><li style="list-style-type:circle">Body area network (i.e. moves with a person)</li></ul></li></ul><h2 id="7f3493f9-b577-4275-945c-e260934e15c7" class="">Local Area Network →</h2><ul id="f0bc760b-dc97-4cab-9f51-5e578b85d333" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Definition</strong></span></mark>→ A local area network is a type of computer network that interconnects computers within a limited range such as office building, college campus, resident society, etc.<p id="37168ebb-2cd6-4df9-adbc-0c1a98c4e833" class="">They are larger than PAN and it can be used by multiple users.<div class="indented"><p id="1daa6bb5-3e10-4166-a972-980ceedf4d2c" class="">Ethernet and Wi-Fi are two most common technology.</p></div></p></li></ul><h3 id="22f48924-6866-41fa-9eb2-3f0a3517e992" class="">Properties →</h3><ul id="a7dc1752-b47d-483d-820d-c03a897d5acb" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Data transfers rate </strong></mark></span><span style="border-bottom:0.05em solid"><mark class="highlight-blue">→</mark></span> Higher</li></ul><ul id="871d54db-1133-403b-939e-06fdc1b0859c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Speed </strong></span></mark><strong>→</strong> 10 Mbps - 1Gbps</li></ul><ul id="8b63a9ae-8de2-44bc-a3ab-891842820aad" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Error rate</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ Lower</li></ul><ul id="4b2f3254-8f65-41e4-9ab8-318896c09ac9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Communication medium or links are</strong></span></mark> → Commonly used communication mediums are <ul id="e8a23c11-f48c-4a9f-a525-a44eb0661ae0" class="bulleted-list"><li style="list-style-type:circle">Twisted pair</li></ul><ul id="1a35f6a6-7aaf-48a1-a199-fc12c461e98d" class="bulleted-list"><li style="list-style-type:circle">So-axial cable</li></ul><ul id="cbd45820-e152-40a9-a7e8-0b1cc884512c" class="bulleted-list"><li style="list-style-type:circle">Optical Fiber</li></ul></li></ul><ul id="dacc44c7-a1c2-4400-b555-ce50a583a076" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Cost of data transmission rate</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ In land is negligible as the medium of land is owned by user organization.</li></ul><ul id="b1738a15-fdbb-4732-8498-ad464c549418" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Ownership</strong></mark></span><span style="border-bottom:0.05em solid"> </span>→ It is typically owned by a single organization.</li></ul><ul id="cd85b21c-283f-468c-a427-0f9d16704053" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Geographical distribution </strong></span></mark>→ Covers few kilometers and works within a campus or an organization.</li></ul><ul id="752d3b10-5720-48db-92dd-449043e2529a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><span style="border-bottom:0.05em solid">Security </span></strong></mark>→ Provide higher security.</li></ul><table id="199437a8-85a2-4525-9c07-e6b8f8976ea5" class="simple-table"><tbody><tr id="7b2ac3a8-3126-4e73-9534-215be2d97f76"><td id="&gt;&gt;y_" class="" style="width:326px">                            <strong>Advantage</strong></td><td id="UfrW" class="" style="width:383px"><strong>                                Disadvantage</strong></td></tr><tr id="e823069d-b423-460b-9775-47c9e455e9ab"><td id="&gt;&gt;y_" class="" style="width:326px">1. It provides faster communication.</td><td id="UfrW" class="" style="width:383px">1. It has a limited range of 10 meters.</td></tr><tr id="ab51dbe8-bbb0-4dc1-94b3-6fcda77c84cb"><td id="&gt;&gt;y_" class="" style="width:326px">2. They are single and inexpensive.</td><td id="UfrW" class="" style="width:383px">2. It requires other devices like router, cable and switches. </td></tr><tr id="0b47105c-2445-4d21-84ee-1ebc115a1036"><td id="&gt;&gt;y_" class="" style="width:326px">3. They provides protection of data and privacy. </td><td id="UfrW" class="" style="width:383px">3. Maintenance is high.</td></tr></tbody></table><h2 id="83ad22f6-8c86-48aa-930e-99b754086beb" class="">Metro-political Area Network →</h2><ul id="15f78321-ab55-48d8-b421-eadff96fea1c" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><mark class="highlight-blue"><strong>Definition</strong></mark></span><span style="border-bottom:0.05em solid"><mark class="highlight-blue"> </mark></span>→ A metro-political area network is a type computer network that spans over a metro-political area or a city. It provides high speed communication between two LAN.<p id="98af34e5-83cc-4caa-a62d-d3447d432fed" class="">Generally a MAN spans a large geographical area than a LAN, but a small geographical area than WAN. It covers about 10 - 100 kilometers of area.</p></li></ul><h3 id="e7fec73b-2158-47e1-844d-cc0b802bf7be" class="">Properties →</h3><ul id="e737d72c-955d-4a05-9479-66e679062351" class="bulleted-list"><li style="list-style-type:disc">Covers a large geographical area.</li></ul><ul id="e4cf8eee-0f5e-459d-b8d9-8f571e3538e1" class="bulleted-list"><li style="list-style-type:disc">In MAN various lands are connected to each other through telephone exchange line.</li></ul><ul id="bab36208-9249-44d5-8eff-4ec9994c0175" class="bulleted-list"><li style="list-style-type:disc">Most widely used protocol in MAN are ISDN, ATM, Frame relay, etc.</li></ul><ul id="de7609dd-0320-43d5-8ef0-c8bccb01a5ff" class="bulleted-list"><li style="list-style-type:disc">computers are located in remote area are connected using MAN’s.<ul id="68887cff-274b-4288-93f6-07b9911bf6e1" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Example </strong></span></mark>→ <p id="121f435d-8fd4-4a3c-b9c4-5c8e2fa72fcb" class="">MAN is a bank whose different branches in a city are connected using public telephone exchange are lines and the system of each branch are connected with each other through LAN’s.</p></li></ul><ul id="f36f5089-79f6-41a6-9b8e-16a4cdd1b79e" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Use </strong></span></mark>→ <ul id="40a03a2d-97c1-418c-9224-ca800a70fb66" class="bulleted-list"><li style="list-style-type:square">MAN is used to communicate between the banks is a city.</li></ul><ul id="c30c4011-d72e-4e56-ae88-5ceb0959e67e" class="bulleted-list"><li style="list-style-type:square">It can be used among different colleges of university&#x27;s, It can also be used for communication in miliary system.</li></ul></li></ul></li></ul><table id="14d92ac8-6df7-4c6a-a234-8c89ca783f2b" class="simple-table"><tbody><tr id="3c5aeb3c-e7e2-4500-ab5e-ba4b15b37b40"><td id="&gt;&gt;y_" class="" style="width:326px"><strong>                            Advantage</strong></td><td id="UfrW" class="" style="width:383px"><strong>                                Disadvantage</strong></td></tr><tr id="54169138-c8b3-4e4f-a5ae-0f3731933174"><td id="&gt;&gt;y_" class="" style="width:326px">1. It provides high speed connection.</td><td id="UfrW" class="" style="width:383px">1. The architecture of MAN is very complicated.</td></tr><tr id="1abb87c3-f21a-4da8-9a92-6e5f919f29f5"><td id="&gt;&gt;y_" class="" style="width:326px">2. MAN can serve multiple users at a time.</td><td id="UfrW" class="" style="width:383px">2. The network is highly expensive because it requires high cost to install fiber optic cable.</td></tr><tr id="bbe01023-9190-4b9e-bc88-1b02da23470a"><td id="&gt;&gt;y_" class="" style="width:326px">3. It always centralized management of network which increases reliability and security.</td><td id="UfrW" class="" style="width:383px"></td></tr></tbody></table><h2 id="883f0aff-7ebb-4da5-bad7-5b213f3e5b46" class="">Wide Area Network →</h2><ul id="347977f7-827e-4157-be3d-c93f0882f5d6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Definition </strong></span></mark>→ A wide area network is a type of network that spans across a very large geographical area connecting multiple local area network and MAN. It enables data communication between two geographical distinct location.</li></ul><h3 id="8050c33b-a4d4-476e-9ec2-c7e9578c4d9a" class="">Properties →</h3><ul id="6dd8a918-67d4-4d07-aa79-6fce7ca4140b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Data transfers rate</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ Lower</li></ul><ul id="6eba4c8c-2152-470c-bbf8-f9a524bd3183" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Speed </strong></span></mark>→ 1200 Bps - 2Mbps</li></ul><ul id="feccf9e7-b8fe-41ba-8550-872fc4ff8d20" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Error rate</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ Higher</li></ul><ul id="552bdf3a-a977-4da9-bef6-5ee695313db0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Communication medium or links are</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> →</span></mark> <ul id="a6d802bc-f234-40c1-9cec-1a8ceda71c60" class="bulleted-list"><li style="list-style-type:circle">Telephone line</li></ul><ul id="cb753af6-2d43-4adf-b4b6-a000aff6384e" class="bulleted-list"><li style="list-style-type:circle">Microwave</li></ul><ul id="9ea3765c-e496-4025-9392-bbba62e469b9" class="bulleted-list"><li style="list-style-type:circle">satellite </li></ul></li></ul><ul id="ab7472b1-7ffd-4a13-8949-33ef9ab84e5c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Cost of data transmission rate</strong></span></mark> → In case of WAN cost may be vey high as the transmission media used here is line or public communication line.</li></ul><ul id="71e9c21e-4fe5-4188-9ef0-c948a8f9ade8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Ownership</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ It’s usually by interconnected multiple LAN’s which may belong to different organization.</li></ul><ul id="aaf9b007-7bc6-48b8-824d-d215de79aeb0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><span style="border-bottom:0.05em solid"><strong>Geographical distribution</strong></span></mark><mark class="highlight-blue"><span style="border-bottom:0.05em solid"> </span></mark>→ Covers thousands kilometers and works worldwide or nationwide.</li></ul><ul id="e0a17c67-e91b-4a81-83b9-d01f277c3e55" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><span style="border-bottom:0.05em solid">Security </span></strong></mark>→ It’s a network of small networks so for high data traffic security is comparatively less.</li></ul><table id="5bf07dea-866c-4d8c-84d0-7b7c9908aa22" class="simple-table"><tbody><tr id="a44dc752-b85e-4af4-a179-8cc6a64abc47"><td id="&gt;&gt;y_" class="" style="width:326px"><strong>                            Advantage</strong></td><td id="UfrW" class="" style="width:383px">                                <strong>Disadvantage</strong></td></tr><tr id="570333c6-86a7-4f74-b75f-943833cf4358"><td id="&gt;&gt;y_" class="" style="width:326px">1. <mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Geographical flexibility </strong></span></mark>→ WAN enables organization to connect remote location, facilitating communication and data sharing.</td><td id="UfrW" class="" style="width:383px">1.<strong> </strong><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"><strong>Cost</strong></mark></span><span style="border-bottom:0.05em solid"><mark class="highlight-yellow"> </mark></span>→ Setting-up and maintaining a WAN is expensive because the infrastructure is complex and sophisticated.</td></tr><tr id="862183c4-a7e7-425e-81b6-e2b42ee62d5b"><td id="&gt;&gt;y_" class="" style="width:326px">2. <mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Resource sharing</strong></span></mark><strong> →</strong> WAN allows sharing of resource like file, application, database, etc.</td><td id="UfrW" class="" style="width:383px">2.<mark class="highlight-yellow"><span style="border-bottom:0.05em solid"> </span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><strong>Dependency on service provider</strong></span></mark><strong> →</strong> WAN dependence on the performance of the ISP. </td></tr></tbody></table><p id="decf2d7a-1ddb-487d-aa47-58110b1a7ff8" class=""><strong>Internet</strong></p><p id="c1a470af-e5a1-4fb2-b124-59ed33fb621c" class="">
+</p><p id="63c0303e-a9af-4cde-87ed-46ca5d55a42d" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
